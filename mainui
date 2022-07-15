@@ -1,0 +1,378 @@
+--[[
+
+
+    Welcome to Cat Prompt [Main UI]
+    v1.052
+
+]]
+
+local playsound = Instance.new("Sound",game:GetService("SoundService"))
+playsound.SoundId = "rbxassetid://8919449656"
+playsound.Volume = 1
+
+playsound:Play()
+wait(2)
+playsound:Play()
+
+-- locals
+local screen = Instance.new("ScreenGui")
+local theprompt = Instance.new("Frame")
+local Topbar = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local Sidebar = Instance.new("Frame")
+local button1 = Instance.new("TextButton")
+local UIListLayout = Instance.new("UIListLayout")
+local button2 = Instance.new("TextButton")
+local button3 = Instance.new("TextButton")
+local button4 = Instance.new("TextButton")
+local Frames = Instance.new("Frame")
+local Home = Instance.new("Frame")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local gameidcopy = Instance.new("TextButton")
+local games = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Supported = Instance.new("Frame")
+local Text = Instance.new("TextLabel")
+local panel = Instance.new("Frame")
+local Title_2 = Instance.new("TextLabel")
+local gameidcopy_2 = Instance.new("TextButton")
+local relaunch = Instance.new("TextButton")
+local settings = Instance.new("Frame")
+local Title_3 = Instance.new("TextLabel")
+local gameidcopy_3 = Instance.new("TextButton")
+local Credits = Instance.new("TextLabel")
+
+
+-- screengui
+screen.Name = "screen"
+screen.Parent = game.CoreGui
+screen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+screen.ResetOnSpawn = false
+
+-- main host of gui
+theprompt.Name = "theprompt"
+theprompt.Parent = screen
+theprompt.Active = true
+theprompt.AnchorPoint = Vector2.new(0.5, 0.5)
+theprompt.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+theprompt.BorderSizePixel = 0
+theprompt.Position = UDim2.new(0.499595791, 0, 0.5, 0)
+theprompt.Size = UDim2.new(0, 443, 0, 230)
+theprompt.Draggable = true -- drag
+
+Topbar.Name = "Topbar"
+Topbar.Parent = theprompt
+Topbar.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+Topbar.BorderSizePixel = 0
+Topbar.Position = UDim2.new(0, 0, -1.24722719e-05, 0)
+Topbar.Size = UDim2.new(0, 442, 0, 45)
+
+TextLabel.Parent = Topbar
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.0226244349, 0, 6.37478297e-05, 0)
+TextLabel.Size = UDim2.new(0, 123, 0, 44)
+TextLabel.Font = Enum.Font.GothamBlack
+TextLabel.Text = "cat prompt"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+TextButton.Parent = Topbar
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 25, 25)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.891402721, 0, 0, 0)
+TextButton.Size = UDim2.new(0, 48, 0, 45)
+TextButton.Font = Enum.Font.SourceSansBold
+TextButton.Text = "X"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 20.000
+TextButton.MouseButton1Click:Connect(function()
+	screen:Destroy()
+end)
+
+Sidebar.Name = "Sidebar"
+Sidebar.Parent = theprompt
+Sidebar.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+Sidebar.BackgroundTransparency = 0.500
+Sidebar.BorderSizePixel = 0
+Sidebar.Position = UDim2.new(0, 0, 0.1956397, 0)
+Sidebar.Size = UDim2.new(0, 133, 0, 185)
+
+button1.Name = "button1"
+button1.Parent = Sidebar
+button1.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+button1.BackgroundTransparency = 0.150
+button1.BorderSizePixel = 0
+button1.Size = UDim2.new(0, 133, 0, 30)
+button1.Font = Enum.Font.Code
+button1.Text = "home"
+button1.TextColor3 = Color3.fromRGB(255, 255, 255)
+button1.TextSize = 14.000
+
+UIListLayout.Parent = Sidebar
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+button2.Name = "button2"
+button2.Parent = Sidebar
+button2.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+button2.BackgroundTransparency = 0.150
+button2.BorderSizePixel = 0
+button2.Size = UDim2.new(0, 133, 0, 30)
+button2.Font = Enum.Font.Code
+button2.Text = "games"
+button2.TextColor3 = Color3.fromRGB(255, 255, 255)
+button2.TextSize = 14.000
+
+button3.Name = "button3"
+button3.Parent = Sidebar
+button3.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+button3.BackgroundTransparency = 0.150
+button3.BorderSizePixel = 0
+button3.Size = UDim2.new(0, 133, 0, 30)
+button3.Font = Enum.Font.Code
+button3.Text = "panel"
+button3.TextColor3 = Color3.fromRGB(255, 255, 255)
+button3.TextSize = 14.000
+
+button4.Name = "button4"
+button4.Parent = Sidebar
+button4.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+button4.BackgroundTransparency = 0.150
+button4.BorderSizePixel = 0
+button4.Size = UDim2.new(0, 133, 0, 30)
+button4.Font = Enum.Font.Code
+button4.Text = "settings"
+button4.TextColor3 = Color3.fromRGB(255, 255, 255)
+button4.TextSize = 14.000
+
+Frames.Name = "Frames"
+Frames.Parent = theprompt
+Frames.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frames.BackgroundTransparency = 1.000
+Frames.Position = UDim2.new(0.300225735, 0, 0.191304341, 0)
+Frames.Size = UDim2.new(0, 309, 0, 186)
+
+Home.Name = "Home"
+Home.Parent = Frames
+Home.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Home.BackgroundTransparency = 1.000
+Home.Position = UDim2.new(-0.000745147467, 0, -0.00224404037, 0)
+Home.Size = UDim2.new(0, 309, 0, 186)
+
+TextLabel_2.Parent = Home
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.16504854, 0, 0.166666672, 0)
+TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_2.Font = Enum.Font.GothamBlack
+TextLabel_2.Text = "cat prompt"
+TextLabel_2.TextColor3 = Color3.fromRGB(247, 247, 247)
+TextLabel_2.TextSize = 30.000
+
+TextLabel_3.Parent = Home
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.16504854, 0, 0.381720424, 0)
+TextLabel_3.Size = UDim2.new(0, 200, 0, 20)
+TextLabel_3.Font = Enum.Font.Code
+TextLabel_3.Text = "v1.052" -- version id
+TextLabel_3.TextColor3 = Color3.fromRGB(247, 247, 247)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 30.000
+TextLabel_3.TextWrapped = true
+
+gameidcopy.Name = "gameidcopy"
+gameidcopy.Parent = Home
+gameidcopy.BackgroundColor3 = Color3.fromRGB(89, 65, 212)
+gameidcopy.BackgroundTransparency = 0.150
+gameidcopy.BorderSizePixel = 0
+gameidcopy.Position = UDim2.new(0.0453074425, 0, 0.790322602, 0)
+gameidcopy.Size = UDim2.new(0, 281, 0, 30)
+gameidcopy.Font = Enum.Font.Code
+gameidcopy.Text = "Launch Cat Prompt"
+gameidcopy.TextColor3 = Color3.fromRGB(255, 255, 255)
+gameidcopy.TextSize = 14.000
+
+
+games.Name = "games"
+games.Parent = Frames
+games.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+games.BackgroundTransparency = 1.000
+games.Position = UDim2.new(-0.000745147467, 0, -0.00224404037, 0)
+games.Size = UDim2.new(0, 309, 0, 186)
+games.Visible = false
+
+Title.Name = "Title"
+Title.Parent = games
+Title.BackgroundColor3 = Color3.fromRGB(135, 157, 255)
+Title.Position = UDim2.new(0.0550161824, 0, 0.0268817209, 0)
+Title.Size = UDim2.new(0, 283, 0, 21)
+Title.Font = Enum.Font.Code
+Title.Text = " games"
+Title.TextColor3 = Color3.fromRGB(247, 247, 247)
+Title.TextSize = 15.000
+Title.TextWrapped = true
+Title.TextXAlignment = Enum.TextXAlignment.Left
+
+Supported.Name = "Supported"
+Supported.Parent = games
+Supported.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+Supported.BorderSizePixel = 0
+Supported.Position = UDim2.new(0.0550161824, 0, 0.166666672, 0)
+Supported.Size = UDim2.new(0, 283, 0, 138)
+
+Text.Name = "Text"
+Text.Parent = Supported
+Text.BackgroundColor3 = Color3.fromRGB(135, 157, 255)
+Text.BackgroundTransparency = 1.000
+Text.Position = UDim2.new(0.0267476328, 0, 0.0486209169, 0)
+Text.Size = UDim2.new(0, 275, 0, 131)
+Text.Font = Enum.Font.Code
+Text.Text = "Pet Simulator X, Skywars, BedWars, Funky Friday, Arsenal, Slap Battles, Blox Wars, Breaking Point, Blox Fruit, Knife Ability Test, Phantom Forces, Elemental Battlegrounds, Don't press the button, Raise a floppa 2, Islands, Shindo Life, Flex Your Time on others, Anime Fighters Simulator, Mining Simulator 2, Collect All Pets, Millionare Tycoon, Tower of Hell, Build a Boat, Rebirth Champions, Weapon Fighting Simulator, Big Paintball, Rift Royale, Flee the Facility, MeepCity, Clicker Simulator, Survive The Killer, Pls Donate, Starving Artists, Work at a Pizza Place, Sonic Speed Simulator, Blast Off, Critical Legends, Fruit Juice Tycoon, Sea Cleaning Simulator, Tapping Legends X, Ability Wars, Brain Simulator, Brookhaven, Royale High, Base Battles, Bee Swarm Simulator, Sword Factory X, My Restuarant, Star Simulator, Jailbreak, Grand Peace Online, Ninja Legends, Ninjaman, King Legacy, Lumber Tycoon, Treasure Simulator, Squid Game, Pet Posse, Zombie Attack"
+Text.TextColor3 = Color3.fromRGB(247, 247, 247)
+Text.TextScaled = true
+Text.TextSize = 15.000
+Text.TextWrapped = true
+Text.TextXAlignment = Enum.TextXAlignment.Left
+Text.TextYAlignment = Enum.TextYAlignment.Top
+
+panel.Name = "panel"
+panel.Parent = Frames
+panel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+panel.BackgroundTransparency = 1.000
+panel.Position = UDim2.new(-0.000745147467, 0, -0.00224404037, 0)
+panel.Size = UDim2.new(0, 309, 0, 186)
+panel.Visible = false
+
+Title_2.Name = "Title"
+Title_2.Parent = panel
+Title_2.BackgroundColor3 = Color3.fromRGB(135, 157, 255)
+Title_2.Position = UDim2.new(0.0550161824, 0, 0.0268817209, 0)
+Title_2.Size = UDim2.new(0, 283, 0, 21)
+Title_2.Font = Enum.Font.Code
+Title_2.Text = " panel"
+Title_2.TextColor3 = Color3.fromRGB(247, 247, 247)
+Title_2.TextSize = 15.000
+Title_2.TextWrapped = true
+Title_2.TextXAlignment = Enum.TextXAlignment.Left
+
+gameidcopy_2.Name = "gameidcopy"
+gameidcopy_2.Parent = panel
+gameidcopy_2.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+gameidcopy_2.BackgroundTransparency = 0.150
+gameidcopy_2.BorderSizePixel = 0
+gameidcopy_2.Position = UDim2.new(0.0550161824, 0, 0.166666672, 0)
+gameidcopy_2.Size = UDim2.new(0, 283, 0, 30)
+gameidcopy_2.Font = Enum.Font.Code
+gameidcopy_2.Text = "Copy GameId"
+gameidcopy_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+gameidcopy_2.TextSize = 14.000
+gameidcopy_2.MouseButton1Click:Connect(function()
+	setclipboard(game.GameId)
+	gameidcopy.Text = "Copied Id"
+end)
+
+relaunch.Name = "relaunch"
+relaunch.Parent = panel
+relaunch.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+relaunch.BackgroundTransparency = 0.150
+relaunch.BorderSizePixel = 0
+relaunch.Position = UDim2.new(0.0550161824, 0, 0.327956975, 0)
+relaunch.Size = UDim2.new(0, 283, 0, 30)
+relaunch.Font = Enum.Font.Code
+relaunch.Text = "Relaunch"
+relaunch.TextColor3 = Color3.fromRGB(255, 255, 255)
+relaunch.TextSize = 14.000
+relaunch.MouseButton1Click:Connect(function()
+	-- loadstring
+	gameidcopy.Text = "Relaunched"
+	screen:Destroy()
+end)
+
+settings.Name = "settings"
+settings.Parent = Frames
+settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+settings.BackgroundTransparency = 1.000
+settings.Position = UDim2.new(-0.000745147467, 0, -0.00224404037, 0)
+settings.Size = UDim2.new(0, 309, 0, 186)
+settings.Visible = false
+
+Title_3.Name = "Title"
+Title_3.Parent = settings
+Title_3.BackgroundColor3 = Color3.fromRGB(135, 157, 255)
+Title_3.Position = UDim2.new(0.0550161824, 0, 0.0268817209, 0)
+Title_3.Size = UDim2.new(0, 283, 0, 21)
+Title_3.Font = Enum.Font.Code
+Title_3.Text = " settings"
+Title_3.TextColor3 = Color3.fromRGB(247, 247, 247)
+Title_3.TextSize = 15.000
+Title_3.TextWrapped = true
+Title_3.TextXAlignment = Enum.TextXAlignment.Left
+
+gameidcopy_3.Name = "gameidcopy"
+gameidcopy_3.Parent = settings
+gameidcopy_3.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+gameidcopy_3.BackgroundTransparency = 0.150
+gameidcopy_3.BorderSizePixel = 0
+gameidcopy_3.Position = UDim2.new(0.0550161824, 0, 0.166666672, 0)
+gameidcopy_3.Size = UDim2.new(0, 283, 0, 30)
+gameidcopy_3.Font = Enum.Font.Code
+gameidcopy_3.Text = "destruct (close)"
+gameidcopy_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+gameidcopy_3.TextSize = 14.000
+gameidcopy_3.MouseButton1Click:Connect(function()
+	screen:Destroy()
+	print("Destroyed Ui")
+end)
+
+Credits.Name = "Credits"
+Credits.Parent = settings
+Credits.BackgroundColor3 = Color3.fromRGB(135, 157, 255)
+Credits.Position = UDim2.new(0.0550161824, 0, 0.817204297, 0)
+Credits.Size = UDim2.new(0, 283, 0, 26)
+Credits.Font = Enum.Font.Code
+Credits.Text = " Made by Zyla"
+Credits.TextColor3 = Color3.fromRGB(247, 247, 247)
+Credits.TextSize = 15.000
+Credits.TextWrapped = true
+Credits.TextXAlignment = Enum.TextXAlignment.Left
+
+-- sidebar buttons
+
+button1.MouseButton1Click:Connect(function()
+	playsound:Play()
+	Home.Visible = true
+	games.Visible = false
+	panel.Visible = false
+	settings.Visible = false
+end)
+
+button2.MouseButton1Click:Connect(function()
+	playsound:Play()
+	Home.Visible = false
+	games.Visible = true
+	panel.Visible = false
+	settings.Visible = false
+end)
+
+button3.MouseButton1Click:Connect(function()
+	playsound:Play()
+	Home.Visible = false
+	games.Visible = false
+	panel.Visible = true
+	settings.Visible = false
+end)
+
+button4.MouseButton1Click:Connect(function()
+	playsound:Play()
+	Home.Visible = false
+	games.Visible = false
+	panel.Visible = false
+	settings.Visible = true
+end)
