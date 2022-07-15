@@ -1,0 +1,340 @@
+--[[
+
+
+    Welcome to Cat Prompt
+    v1.051
+
+]]
+
+
+local NotificationSound = Instance.new("Sound",game:GetService("SoundService"))
+NotificationSound.SoundId = "rbxassetid://3398620867"
+NotificationSound.Volume = 1
+
+Notifications = {}
+
+local notificationGui = Instance.new("ScreenGui",game.CoreGui)
+function Notify(Header,Body,Delay)
+    NotificationSound:Play()
+    local Frame = Instance.new("Frame",notificationGui)
+    local Frame2 = Instance.new("Frame",Frame)
+    local Image = Instance.new("ImageLabel",Frame2)
+    local Corner1 = Instance.new("UICorner",Frame)
+    local Corner2 = Instance.new("UICorner",Frame2)
+    local HText = Instance.new("TextLabel",Frame2)
+    local BText = Instance.new("TextLabel",Frame2)
+    Frame.Size = UDim2.new(0.199, 0,0.11, 0)
+    Frame.Position = UDim2.new(1.78, 0,0.001, 0)
+    Frame.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
+    Frame.BackgroundTransparency = 1
+    Frame2.AnchorPoint = Vector2.new(0.5,0.5)
+    Frame2.Size = UDim2.new(0.975,0,0.934,0)
+    Frame2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    Frame2.Position = UDim2.new(0.5, 0, 0.5, 0)
+    HText.Size = UDim2.new(0.705, 0,0.309, 0)
+    HText.Position = UDim2.new(0.267, 0, 0.081, 0)
+    HText.BackgroundTransparency = 1
+    HText.TextColor3 = Color3.fromRGB(255,255,255)
+    HText.Font = Enum.Font.GothamBlack
+    HText.TextSize = HText.AbsoluteSize.X * 0.12
+    HText.TextXAlignment = "Left"
+    BText.Size = UDim2.new(0.705, 0,0.562, 0)
+    BText.TextSize = BText.AbsoluteSize.X * 0.065
+    BText.TextWrapped = true
+    BText.Position = UDim2.new(0.267, 0, 0.465, 0)
+    BText.TextXAlignment = "Left"
+    BText.TextYAlignment = "Top"
+    BText.BackgroundTransparency = 1
+    BText.TextColor3 = Color3.fromRGB(255,255,255)
+    BText.Font = Enum.Font.Gotham
+    Image.BackgroundTransparency = 1
+    Image.Size = UDim2.new(0.167, 0, 0.582, 0)
+    Image.Position = UDim2.new(0.046, 0, 0.202, 0)
+    Image.Image = "http://www.roblox.com/asset/?id=10196601290"
+    HText.Text = Header
+    BText.Text = Body
+    for i = 1,100 do
+        task.wait()
+        Frame.Position = Frame.Position - UDim2.new(0.01,0,0,0)
+    end
+    wait(Delay)
+    for i = 1,100 do
+        task.wait()
+        Frame.Position = Frame.Position + UDim2.new(0.01,0,0,0)
+    end
+    Frame:Destroy()
+end
+ 
+Notify("Cat Prompt","Welcome to Cat Prompt",2)
+
+
+-- GAME DETECTING
+
+games = {
+    game1 = {
+        LString = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua",
+        gameid = 2619619496, -- bedwars
+    },
+    game2 = {
+        LString = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua",
+        gameid = 3258873704, -- skywars
+    },
+    game3 = {
+        LString = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua",
+        gameid = 5455985493, -- bloxwars
+    },
+    game5 = {
+        LString = "https://raw.githubusercontent.com/ZoinkyPoinkie/FunkyFridayDevTools/main/Un-Obfuscated",
+        gameid = 2404080894, -- ff
+    },
+    game6 = {
+        LString = "https://raw.githubusercontent.com/fusiongreg/BoltsHubV5/main/BoltsHubV5",
+        gameid = 111958650, -- arsnela
+    },
+    game7 = {
+        LString = "https://raw.githubusercontent.com/rblxscriptsnet/unfair/main/rblxhub.lua",
+        gameid = 2380077519, -- sb
+    },
+    game8 = {
+        LString = "https://raw.githubusercontent.com/tkorra/bp-gui/main/main.lua",
+        gameid = 271119130, -- bp
+    },
+    game9 = {
+        LString = "https://raw.githubusercontent.com/1f0yt/community/master/hxllow",
+        gameid = 994732206, -- bp
+    },
+    game10 = {
+        LString = "https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt",
+        gameid = 254394801, -- KAT
+    },
+    game11 = {
+        LString = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua",
+        gameid = 113491250, -- pf
+    },
+    game12 = {
+        LString = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
+        gameid = 224422602, -- eb
+    },
+    game13 = {
+        LString = "https://raw.githubusercontent.com/Xyla5/Cat-Prompt-Other/main/dontpressthebutton",
+        gameid = 1083350597, -- dptb
+    },
+    game14 = {
+        LString = "https://raw.githubusercontent.com/Xyla5/Cat-Prompt-Other/main/floppa2",
+        gameid = 3620011279, -- f2
+    },
+    game15 = {
+        LString = "https://system-exodus.com/scripts/Islands/Islands.lua",
+        gameid = 1659645941, -- f2
+    },
+    game16 = {
+        LString = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
+        gameid = 1511883870, -- sl
+    },
+    game17 = {
+        LString = "https://raw.githubusercontent.com/wally-rblx/stay-alive-and-flex-time/main/main.lua",
+        gameid = 1848708700, -- flexyourtime
+    },
+    game18 = {
+        LString = "https://raw.githubusercontent.com/Xyla5/Cat-Prompt-Other/main/MM2",
+        gameid = 66654135, -- mm2
+    },
+    game19 = {
+        LString = "https://raw.githubusercontent.com/Nikita365/Break-In-Story-/main/Break%20In%20Story%20Hub",
+        gameid = 1318971886 or 1318971886, -- bi
+    },
+    game20 = {
+        LString = "https://raw.githubusercontent.com/Discord0000/Zer0Hub/main/MainScript.lua",
+        gameid = 2324662457, -- animefighters
+    },
+    game21 = {
+        LString = "https://system-exodus.com/scripts/MiningSimulator/MiningSimulator2.lua",
+        gameid = 3558292888, -- ms2
+    },
+    game22 = {
+        LString = "https://pastebin.com/raw/XWKggXsD",
+        gameid = 2832153598,    -- Unknown
+    },
+    game23 = {
+        LString = "https://soggyhubv2.vercel.app",
+        gameid = 3539939379,    -- Unknown
+    },
+    game24 = {
+        LString = "https://raw.githubusercontent.com/KodaLINEN/Collect-All-Pets/main/main",
+        gameid = 3359505957,    -- Collect ALL PETS
+    },
+    game25 = {
+        LString = "https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/MillionaireEmpireTycoon.lua",
+        gameid = 2515550066,    -- Millionaire Tycoon
+    },
+    game26 = {
+        LString = "https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua",
+        gameid = 703124385,    -- Unknown
+    },
+    game27 = {
+        LString = "https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/BuildABoatForTreasure.lua",
+        gameid = 210851291,    -- build a boat
+    },
+    game28 = {
+        LString = "https://raw.githubusercontent.com/KrystekYTpv/Scripts/main/RebirthChampionsX.lua",
+        gameid = 3258302407,    -- rebirth champions
+    },
+    game29 = {
+        LString = "https://raw.githubusercontent.com/FreeRobloxScripts/anime-fighting/main/simulator",
+        gameid = 3262314006,    -- anime fighting
+    },
+    game30 = {
+        LString = "https://raw.githubusercontent.com/LeoKholYt/roblox/main/bigpaintball.lua",
+        gameid = 1247975681,    -- big paintball
+    },
+    game31 = {
+        LString = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua",
+        gameid = 3575386294,    -- shit royale
+    },
+    game32 = {
+        LString = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
+        gameid = 372226183,    -- flee facility
+    },
+    game33 = {
+        LString = "https://raw.githubusercontent.com/synolope/mpcity/main/loader.lua",
+        gameid = 140239261,    -- meepcity
+    },
+    game34 = {
+        LString = "https://raw.githubusercontent.com/LaDamage/releases/main/Clicker-Simulator.lua",
+        gameid = 2937673012,    -- clicker sim
+    },
+    game35 = {
+        LString = "https://raw.githubusercontent.com/FOXTROXHACKS/ElToro/main/Hub.lua",
+        gameid = 1489026993,    -- survive the killer
+    },
+    game36 = {
+        LString = "https://gitlab.com/Tsuniox/lua-stuff/-/raw/master/R15GUI.lua",
+        gameid = 3317679266,    -- pls donate
+    },
+    game37 = {
+        LString = "https://raw.githubusercontent.com/Jeux45/Starving-Artist-script/main/Script",
+        gameid = 3367801828,    -- starving artist
+    },
+    game38 = {
+        LString = "https://gist.githubusercontent.com/TurkOyuncu99/bb2f1182a224999682a2d1a87aa8517a/raw/66c7791224be0434b23938ca26244238649d0143/ameicaa",
+        gameid = 47545,    -- work at a pizza place
+    },
+    game39 = {
+        LString = "https://raw.githubusercontent.com/destylol/masterhubv311/itachi/Main.lua",
+        gameid = 3405618667,    -- sss
+    },
+    game40 = {
+        LString = "https://raw.githubusercontent.com/Xyla5/Cat-Prompt-Other/main/blastoff",
+        gameid = 1840897362,    -- blast off
+    },
+    game41 = {
+        LString = "https://thedragonslayer2.github.io",
+        gameid = 3281670400,    -- CRITICAL LEGENDS
+    },
+    game42 = {
+        LString = "https://raw.githubusercontent.com/qalue/releases/main/FJT-release",
+        gameid = 2559182639,    -- fuirt shit
+    },
+    game43 = {
+        LString = "https://raw.githubusercontent.com/dooory/OC/main/Working/sea_cleaning_sim.lua",
+        gameid = 3034883278,    -- sea cleaning simulator
+    },
+    game44 = {
+        LString = "https://raw.githubusercontent.com/Xyla5/Cat-Prompt-Other/main/tlx",
+        gameid = 3321455016,    -- tapping legends x
+    },
+    game45 = {
+        LString = "https://paste.ee/r/Wo5Kj",
+        gameid = 3168615253,    -- abilitywars
+    },
+    game46 = {
+        LString = "https://raw.githubusercontent.com/ScriptsLynX/LynX/main/Loader",
+        gameid = 1671262904,    -- brain sim
+    },
+    game47 = {
+        LString = "https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven",
+        gameid = 1686885941,    -- SHITHAVEN
+    },
+    game48 = {
+        LString = "https://painexist.gg/api/royalehigh.lua",
+        gameid = 321778215,    -- rh
+    },
+    game49 = {
+        LString = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
+        gameid = 1865489894,    -- rh
+    },
+    game50 = {
+        LString = "https://raw.githubusercontent.com/Boxking776/kocmoc/main/kocmoc-remastered.lua",
+        gameid = 601130232,    -- bss
+    },
+    game51 = {
+        LString = "https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/SwordFactoryX.lua",
+        gameid = 3421293944,    -- sfs
+    },
+    game52 = {
+        LString = "http://void-scripts.com/Scripts/myRest.lua",
+        gameid = 1434220026,    -- myrest
+    },
+    game53 = {
+        LString = "https://raw.githubusercontent.com/Xyla5/Cat-Prompt-Other/main/sta",
+        gameid = 3330367927,    -- myrest
+    },
+    game54 = {
+        LString = "https://raw.githubusercontent.com/wawsdasdacx/ohascriptnrrewading/main/jbsaxcriptidk1",
+        gameid = 245662005,    -- jailshit
+    },
+    game55 = {
+        LString = "https://raw.githubusercontent.com/ArponAG/Scripts/main/gpo.lua",
+        gameid = 648454481,    -- gpo
+    },
+    game56 = {
+        LString = "https://raw.githubusercontent.com/zerpqe/script/main/NinjaLegends.lua",
+        gameid = 1335695570,    -- nl
+    },
+    game57 = {
+        LString = "https://raw.githubusercontent.com/NocturneMoDz/NINJAMAN/main/METAB",
+        gameid = 1773853966,    -- ns
+    },
+    game58 = {
+        LString = "https://raw.githubusercontent.com/DookDekDEE/Hyper/main/script.lua",
+        gameid = 1451439645,    -- kls
+    },
+    game59 = {
+        LString = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
+        gameid = 2471084,    -- lt
+    },
+    game60 = {
+        LString = "http://void-scripts.com/Scripts/treasureHuntSim.lua",
+        gameid = 540856839,    -- ts
+    },
+    game61 = {
+        LString = "https://raw.githubusercontent.com/Xyla5/Cat-Prompt-Other/main/sg",
+        gameid = 2934375089,    -- sg
+    },
+    game62 = {
+        LString = "https://raw.githubusercontent.com/shadowTW/dsadasdas/main/petposse.lua",
+        gameid = 3183305682   -- pp
+    },
+    game63 = {
+        LString = "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
+        gameid = 504035427   -- za
+    },
+}
+
+
+
+_G.detected = false
+
+for i,v in pairs(games) do
+    if v.gameid == game.GameId then
+        _G.detected = true
+        Notify("Cat Prompt","Game Found",2)
+        loadstring(game:HttpGet(v.LString, true))()
+    end
+end
+
+if _G.detected == false then
+    Notify("Cat Prompt","Game Not Found",2)
+end
+
+ 
