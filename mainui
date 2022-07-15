@@ -181,7 +181,7 @@ TextLabel_3.BackgroundTransparency = 1.000
 TextLabel_3.Position = UDim2.new(0.16504854, 0, 0.381720424, 0)
 TextLabel_3.Size = UDim2.new(0, 200, 0, 20)
 TextLabel_3.Font = Enum.Font.Code
-TextLabel_3.Text = "v1.052" -- version id
+TextLabel_3.Text = "v1.052 - fixed" -- version id
 TextLabel_3.TextColor3 = Color3.fromRGB(247, 247, 247)
 TextLabel_3.TextScaled = true
 TextLabel_3.TextSize = 30.000
@@ -198,7 +198,12 @@ gameidcopy.Font = Enum.Font.Code
 gameidcopy.Text = "Launch Cat Prompt"
 gameidcopy.TextColor3 = Color3.fromRGB(255, 255, 255)
 gameidcopy.TextSize = 14.000
-
+gameidcopy.MouseButton1Click:Connect(function()
+    playsound:Play()
+    gameidcopy.Visible = false
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xyla5/Cat-Prompt-UI/main/mainscript"))()
+    gameidcopy.Visible = true
+end)
 
 games.Name = "games"
 games.Parent = Frames
@@ -290,9 +295,9 @@ relaunch.Text = "Relaunch"
 relaunch.TextColor3 = Color3.fromRGB(255, 255, 255)
 relaunch.TextSize = 14.000
 relaunch.MouseButton1Click:Connect(function()
-	-- loadstring
-	gameidcopy.Text = "Relaunched"
-	screen:Destroy()
+    screen:Destroy()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Xyla5/Cat-Prompt-UI/main/mainui"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xyla5/Cat-Prompt-UI/main/mainscript"))()
 end)
 
 settings.Name = "settings"
